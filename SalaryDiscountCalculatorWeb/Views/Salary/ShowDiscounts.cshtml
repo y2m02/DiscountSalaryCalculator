@@ -1,0 +1,124 @@
+﻿@model Salary
+
+@{
+    ViewData["Title"] = "Desgloce de descuentos";
+}
+
+<h1>Desgloce de descuentos</h1>
+
+<div>
+    <hr/>
+    <div class="row" style="padding-left: 2%">
+        <div class="form-group">
+            <b> @Html.DisplayNameFor(model => model.MonthlySalary):</b>
+            RD$ @Html.DisplayFor(model => model.MonthlySalary)
+        </div>
+    </div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MonthlySalary)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MonthlySalary)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AnnualSalary)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AnnualSalary)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MonthlySalaryAfterAfpAndSfsDiscount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MonthlySalaryAfterAfpAndSfsDiscount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AnnualSalaryAfterAfpAndSfsDiscount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AnnualSalaryAfterAfpAndSfsDiscount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MonthlySalaryAfterTotalDiscount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MonthlySalaryAfterTotalDiscount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AnnualSalaryAfterTotalDiscount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AnnualSalaryAfterTotalDiscount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SfsPercent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SfsPercent)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SfsMonthlyDiscount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SfsMonthlyDiscount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SfsAnnualDiscount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SfsAnnualDiscount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AfpPercent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AfpPercent)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AfpMonthlyDiscount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AfpMonthlyDiscount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AfpAnnualDiscount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AfpAnnualDiscount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IsrCategory)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IsrCategory)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IsrMonthlyDiscount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IsrMonthlyDiscount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IsrAnnualDiscount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IsrAnnualDiscount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MonthlyTotalDiscount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MonthlyTotalDiscount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AnnualTotalDiscount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AnnualTotalDiscount)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Calculate">Calcular otro monto</a>
+</div>

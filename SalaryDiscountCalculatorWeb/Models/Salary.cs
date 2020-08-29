@@ -9,9 +9,11 @@ namespace SalaryDiscountCalculatorWeb.Models
             MonthlySalary = salary;
         }
 
-        [DisplayName("Salario (mensual)")] public decimal MonthlySalary { get; }
+        [DisplayName("Salario (mensual)")] 
+        public decimal MonthlySalary { get; }
 
-        [DisplayName("Salario (anual)")] public decimal AnnualSalary => MonthlySalary * 12;
+        [DisplayName("Salario (anual)")] 
+        public decimal AnnualSalary => MonthlySalary * 12;
 
         [DisplayName("Salario menos AFP y SFS (mensual)")]
         public decimal MonthlySalaryAfterAfpAndSfsDiscount => MonthlySalary - AfpMonthlyDiscount - SfsMonthlyDiscount;
@@ -25,25 +27,32 @@ namespace SalaryDiscountCalculatorWeb.Models
         [DisplayName("Salario menos AFP, SFS y ISR (anual)")]
         public decimal AnnualSalaryAfterTotalDiscount { get; set; }
 
-        [DisplayName("% SFS (mensual)")] public static decimal SfsPercent => 0.0304m;
+        [DisplayName("% SFS (mensual)")] 
+        public decimal SfsPercent => 0.0304m;
 
         [DisplayName("Descuento SFS (mensual)")]
         public decimal SfsMonthlyDiscount => MonthlySalary * SfsPercent;
 
-        [DisplayName("Descuento SFS (anual)")] public decimal SfsAnnualDiscount => SfsMonthlyDiscount * 12;
+        [DisplayName("Descuento SFS (anual)")] 
+        public decimal SfsAnnualDiscount => SfsMonthlyDiscount * 12;
 
-        [DisplayName("% AFP (anual)")] public static decimal AfpPercent => 0.0287m;
+        [DisplayName("% AFP (anual)")] 
+        public decimal AfpPercent => 0.0287m;
 
-        [DisplayName("Descuento AFP (anual)")] public decimal AfpMonthlyDiscount => MonthlySalary * AfpPercent;
+        [DisplayName("Descuento AFP (anual)")] 
+        public decimal AfpMonthlyDiscount => MonthlySalary * AfpPercent;
 
-        [DisplayName("Descuento AFP (anual)")] public decimal AfpAnnualDiscount => AfpMonthlyDiscount * 12;
+        [DisplayName("Descuento AFP (anual)")] 
+        public decimal AfpAnnualDiscount => AfpMonthlyDiscount * 12;
 
-        [DisplayName("Categoría ISR")] public string IsrCategory { get; set; }
+        [DisplayName("Categoría ISR")] 
+        public string IsrCategory { get; set; }
 
         [DisplayName("Descuento ISR (mensual)")]
         public decimal IsrMonthlyDiscount { get; set; }
 
-        [DisplayName("Descuento ISR (anual)")] public decimal IsrAnnualDiscount { get; set; }
+        [DisplayName("Descuento ISR (anual)")] 
+        public decimal IsrAnnualDiscount { get; set; }
 
         [DisplayName("Total descuento (mensual)")]
         public decimal MonthlyTotalDiscount { get; set; }
