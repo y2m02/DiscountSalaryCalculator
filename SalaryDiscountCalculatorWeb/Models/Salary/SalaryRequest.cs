@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace SalaryDiscountCalculatorWeb.Models
+namespace SalaryDiscountCalculatorWeb.Models.Salary
 {
     public class SalaryRequest
     {
