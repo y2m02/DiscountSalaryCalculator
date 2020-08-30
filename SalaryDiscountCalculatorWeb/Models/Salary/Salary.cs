@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace SalaryDiscountCalculatorWeb.Models
+namespace SalaryDiscountCalculatorWeb.Models.Salary
 {
     public class Salary
     {

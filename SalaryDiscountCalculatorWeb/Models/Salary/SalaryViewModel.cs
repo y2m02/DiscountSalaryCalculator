@@ -1,26 +1,14 @@
 ﻿using System.ComponentModel;
 
-namespace SalaryDiscountCalculatorWeb.Views.Salary
+namespace SalaryDiscountCalculatorWeb.Models.Salary
 {
     public class SalaryViewModel
     {
-        [DisplayName("Salario (mensual)")]
+        [DisplayName("Salario bruto (mensual)")]
         public string MonthlySalary { set; get; }
 
-        [DisplayName("Salario (anual)")]
+        [DisplayName("Salario bruto (anual)")]
         public string AnnualSalary { get; set; }
-
-        [DisplayName("Salario menos AFP y SFS (mensual)")]
-        public string MonthlySalaryAfterAfpAndSfsDiscount { get; set; }
-
-        [DisplayName("Salario menos AFP y SFS (anual)")]
-        public string AnnualSalaryAfterAfpAndSfsDiscount { get; set; }
-
-        [DisplayName("Salario menos AFP, SFS y ISR (mensual)")]
-        public string MonthlySalaryAfterTotalDiscount { get; set; }
-
-        [DisplayName("Salario menos AFP, SFS y ISR (anual)")]
-        public string AnnualSalaryAfterTotalDiscount { get; set; }
 
         [DisplayName("% AFP")]
         public string AfpPercent { get; set; }
@@ -54,5 +42,17 @@ namespace SalaryDiscountCalculatorWeb.Views.Salary
 
         [DisplayName("Total descuento (anual)")]
         public string AnnualTotalDiscount { get; set; }
+
+        [DisplayName("Salario menos AFP y SFS (mensual)")]
+        public string MonthlySalaryAfterAfpAndSfsDiscount { get; set; }
+
+        [DisplayName("Salario menos AFP y SFS (anual)")]
+        public string AnnualSalaryAfterAfpAndSfsDiscount { get; set; }
+
+        [DisplayName("Salario neto (mensual)")]
+        public string MonthlySalaryAfterTotalDiscount { get; set; }
+
+        [DisplayName("Salario neto (anual)")]
+        public string AnnualSalaryAfterTotalDiscount { get; set; }
     }
 }

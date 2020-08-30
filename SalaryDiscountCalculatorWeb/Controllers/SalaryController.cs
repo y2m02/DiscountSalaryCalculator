@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SalaryDiscountCalculatorWeb.Models;
-using SalaryDiscountCalculatorWeb.Views.Salary;
+using SalaryDiscountCalculatorWeb.Models.Salary;
 
 namespace SalaryDiscountCalculatorWeb.Controllers
 {
@@ -19,28 +18,28 @@ namespace SalaryDiscountCalculatorWeb.Controllers
             var salary = new Salary((decimal) request.Salary).CalculateDiscount();
 
             return View(
-                    "ShowDiscounts", 
-                    new SalaryViewModel
-                    {
-                        MonthlySalary = salary.MonthlySalary.ToString("N"),
-                        AnnualSalary = salary.AnnualSalary.ToString("N"),
-                        MonthlySalaryAfterAfpAndSfsDiscount = salary.MonthlySalaryAfterAfpAndSfsDiscount.ToString("N"),
-                        AnnualSalaryAfterAfpAndSfsDiscount = salary.AnnualSalaryAfterAfpAndSfsDiscount.ToString("N"),
-                        MonthlySalaryAfterTotalDiscount = salary.MonthlySalaryAfterTotalDiscount.ToString("N"),
-                        AnnualSalaryAfterTotalDiscount = salary.AnnualSalaryAfterTotalDiscount.ToString("N"),
-                        SfsPercent = salary.SfsPercent.ToString("N4"),
-                        SfsMonthlyDiscount = salary.SfsMonthlyDiscount.ToString("N"),
-                        SfsAnnualDiscount = salary.SfsAnnualDiscount.ToString("N"),
-                        AfpPercent = salary.AfpPercent.ToString("N4"),
-                        AfpMonthlyDiscount = salary.AfpMonthlyDiscount.ToString("N"),
-                        AfpAnnualDiscount = salary.AfpAnnualDiscount.ToString("N"),
-                        IsrCategory = salary.IsrCategory,
-                        IsrMonthlyDiscount = salary.IsrMonthlyDiscount.ToString("N"),
-                        IsrAnnualDiscount = salary.IsrAnnualDiscount.ToString("N"),
-                        MonthlyTotalDiscount = salary.MonthlyTotalDiscount.ToString("N"),
-                        AnnualTotalDiscount = salary.AnnualTotalDiscount.ToString("N"),
-                    }
-                  );
+                "ShowDiscounts",
+                new SalaryViewModel
+                {
+                    MonthlySalary = salary.MonthlySalary.ToString("N"),
+                    AnnualSalary = salary.AnnualSalary.ToString("N"),
+                    MonthlySalaryAfterAfpAndSfsDiscount = salary.MonthlySalaryAfterAfpAndSfsDiscount.ToString("N"),
+                    AnnualSalaryAfterAfpAndSfsDiscount = salary.AnnualSalaryAfterAfpAndSfsDiscount.ToString("N"),
+                    MonthlySalaryAfterTotalDiscount = salary.MonthlySalaryAfterTotalDiscount.ToString("N"),
+                    AnnualSalaryAfterTotalDiscount = salary.AnnualSalaryAfterTotalDiscount.ToString("N"),
+                    SfsPercent = salary.SfsPercent.ToString("N4"),
+                    SfsMonthlyDiscount = salary.SfsMonthlyDiscount.ToString("N"),
+                    SfsAnnualDiscount = salary.SfsAnnualDiscount.ToString("N"),
+                    AfpPercent = salary.AfpPercent.ToString("N4"),
+                    AfpMonthlyDiscount = salary.AfpMonthlyDiscount.ToString("N"),
+                    AfpAnnualDiscount = salary.AfpAnnualDiscount.ToString("N"),
+                    IsrCategory = salary.IsrCategory,
+                    IsrMonthlyDiscount = salary.IsrMonthlyDiscount.ToString("N"),
+                    IsrAnnualDiscount = salary.IsrAnnualDiscount.ToString("N"),
+                    MonthlyTotalDiscount = salary.MonthlyTotalDiscount.ToString("N"),
+                    AnnualTotalDiscount = salary.AnnualTotalDiscount.ToString("N")
+                }
+            );
         }
     }
 }
