@@ -1,0 +1,72 @@
+﻿@model SalaryDiscountCalculatorWeb.Models.SalaryRequest
+
+@{
+    ViewData["Title"] = "Calculadorar";
+}
+
+<h4>Calculadora de descuentos</h4>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Calculate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Salary" class="control-label" style="font-weight: bold"></label>
+                <input asp-for="Salary" class="form-control .numericField" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Calcular" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+
+<script>
+    $(function () {
+        window.$("input").attr("autocomplete", "off");
+
+        window.$('.numericField').bind('paste', function (e) {
+            e.preventDefault();
+        });
+
+        window.$("input[class*='numericField']").keydown(function (event) {
+
+            if (event.shiftKey == true) {
+                event.preventDefault();
+            }
+
+            if (!((event.keyCode >= 48 && event.keyCode <= 57) ||
+                (event.keyCode >= 96 && event.keyCode <= 105) ||
+                event.keyCode == 8 ||
+                event.keyCode == 9 ||
+                event.keyCode == 37 ||
+                event.keyCode == 39 ||
+                event.keyCode == 46 ||
+                event.keyCode == 190)) {
+
+                event.preventDefault();
+            }
+
+            if (window.$(this).val().indexOf(".") !== -1 && event.keyCode == 190)
+                event.preventDefault();
+            //if a decimal has been added, disable the "."-button
+        });
+
+        window.$(".numericField").focus(function () {
+            var $this = window.$(this);
+            $this.select();
+
+            // Work around Chrome's little problem
+            $this.mouseup(function () {
+                // Prevent further mouseup intervention
+                $this.unbind("mouseup");
+                return false;
+            });
+        });
+    });
+</script>

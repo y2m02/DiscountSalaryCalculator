@@ -1,0 +1,118 @@
+﻿@model SalaryDiscountCalculatorWeb.Views.Salary.SalaryViewModel
+
+@{
+    ViewData["Title"] = "Desgloce de descuentos";
+}
+
+<h1>Desgloce de descuentos</h1>
+
+<div>
+    <hr/>
+    <div style="padding-left: 2%"> 
+        <div class="row" >
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(model => model.MonthlySalary):</b>
+                RD$@Html.DisplayFor(model => model.MonthlySalary)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(model => model.AnnualSalary):</b>
+                RD$@Html.DisplayFor(model => model.AnnualSalary)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(model => model.AfpPercent):</b>
+                    @Html.DisplayFor(model => model.AfpPercent)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(model => model.AfpMonthlyDiscount):</b>
+                RD$@Html.DisplayFor(model => model.AfpMonthlyDiscount)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(model => model.AfpAnnualDiscount):</b>
+                RD$@Html.DisplayFor(model => model.AfpAnnualDiscount)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(model => model.SfsPercent):</b>
+                    @Html.DisplayFor(model => model.SfsPercent)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(model => model.SfsMonthlyDiscount):</b>
+                RD$@Html.DisplayFor(model => model.SfsMonthlyDiscount)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(model => model.SfsAnnualDiscount):</b>
+                RD$@Html.DisplayFor(model => model.SfsAnnualDiscount)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(model => model.IsrCategory):</b>
+                    @Html.DisplayFor(model => model.IsrCategory)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(model => model.IsrMonthlyDiscount):</b>
+                RD$@Html.DisplayFor(model => model.IsrMonthlyDiscount)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(model => model.IsrAnnualDiscount):</b>
+                RD$@Html.DisplayFor(model => model.IsrAnnualDiscount)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(model => model.MonthlyTotalDiscount):</b>
+                RD$@Html.DisplayFor(model => model.MonthlyTotalDiscount)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(model => model.AnnualTotalDiscount):</b>
+                RD$@Html.DisplayFor(model => model.AnnualTotalDiscount)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(model => model.MonthlySalaryAfterAfpAndSfsDiscount):</b>
+                RD$@Html.DisplayFor(model => model.MonthlySalaryAfterAfpAndSfsDiscount)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(model => model.AnnualSalaryAfterAfpAndSfsDiscount):</b>
+                RD$@Html.DisplayFor(model => model.AnnualSalaryAfterAfpAndSfsDiscount)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(model => model.MonthlySalaryAfterTotalDiscount):</b>
+                RD$@Html.DisplayFor(model => model.MonthlySalaryAfterTotalDiscount)
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <b> @Html.DisplayNameFor(model => model.AnnualSalaryAfterTotalDiscount):</b>
+                RD$@Html.DisplayFor(model => model.AnnualSalaryAfterTotalDiscount)
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Calculate">Calcular otro monto</a>
+</div>
