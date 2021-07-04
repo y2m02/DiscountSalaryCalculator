@@ -15,7 +15,7 @@ namespace SalaryDiscountCalculatorWeb.Controllers
         {
             if (!ModelState.IsValid) return View();
 
-            var salary = new Salary((decimal) request.Salary).CalculateDiscount();
+            var salary = new Salary((decimal)request.Salary!).CalculateDiscount();
 
             return View(
                 "ShowDiscounts",
@@ -37,7 +37,10 @@ namespace SalaryDiscountCalculatorWeb.Controllers
                     IsrMonthlyDiscount = salary.IsrMonthlyDiscount.ToString("N"),
                     IsrAnnualDiscount = salary.IsrAnnualDiscount.ToString("N"),
                     MonthlyTotalDiscount = salary.MonthlyTotalDiscount.ToString("N"),
-                    AnnualTotalDiscount = salary.AnnualTotalDiscount.ToString("N")
+                    AnnualTotalDiscount = salary.AnnualTotalDiscount.ToString("N"),
+                    MonthlySalaryInGfSystem = salary.MonthlySalaryInGfSystem.ToString("N"),
+                    FortnightSalaryInGfSystem = salary.FortnightSalaryInGfSystem.ToString("N"),
+                    FortnightSalaryInGfSystem2 = salary.FortnightSalaryInGfSystem2.ToString("N"),
                 }
             );
         }

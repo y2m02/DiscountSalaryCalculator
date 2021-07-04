@@ -54,5 +54,14 @@ namespace SalaryDiscountCalculatorWeb.Models.Salary
 
         [DisplayName("Salario neto (anual)")]
         public string AnnualSalaryAfterTotalDiscount { get; set; }
+        
+        [DisplayName("Salario neto mensual (Goflow)")]
+        public string MonthlySalaryInGfSystem { get; set; }
+        
+        [DisplayName("Salario neto quincenal (Goflow)")]
+        public string FortnightSalaryInGfSystem { get; set; }
+
+        [DisplayName("Salario neto quincenal 2 (Goflow)")]
+        public string FortnightSalaryInGfSystem2 { get; set; }
     }
 }

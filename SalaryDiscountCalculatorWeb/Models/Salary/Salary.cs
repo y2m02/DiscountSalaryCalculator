@@ -9,16 +9,17 @@ namespace SalaryDiscountCalculatorWeb.Models.Salary
             MonthlySalary = salary;
         }
 
-        [DisplayName("Salario (mensual)")] 
+        [DisplayName("Salario (mensual)")]
         public decimal MonthlySalary { get; }
+
         public decimal AnnualSalary => MonthlySalary * 12;
-    
+
         public decimal MonthlySalaryAfterAfpAndSfsDiscount => MonthlySalary - AfpMonthlyDiscount - SfsMonthlyDiscount;
         public decimal AnnualSalaryAfterAfpAndSfsDiscount => MonthlySalaryAfterAfpAndSfsDiscount * 12;
 
         public decimal MonthlySalaryAfterTotalDiscount { get; set; }
         public decimal AnnualSalaryAfterTotalDiscount { get; set; }
-  
+
         public decimal SfsPercent => 0.0304m;
         public decimal SfsMonthlyDiscount => MonthlySalary * SfsPercent;
         public decimal SfsAnnualDiscount => SfsMonthlyDiscount * 12;
@@ -27,7 +28,6 @@ namespace SalaryDiscountCalculatorWeb.Models.Salary
         public decimal AfpMonthlyDiscount => MonthlySalary * AfpPercent;
         public decimal AfpAnnualDiscount => AfpMonthlyDiscount * 12;
 
-
         public string IsrCategory { get; set; }
         public decimal IsrMonthlyDiscount { get; set; }
         public decimal IsrAnnualDiscount { get; set; }
@@ -35,6 +35,9 @@ namespace SalaryDiscountCalculatorWeb.Models.Salary
         public decimal MonthlyTotalDiscount { get; set; }
         public decimal AnnualTotalDiscount { get; set; }
 
+        public decimal MonthlySalaryInGfSystem { get; set; }
+        public decimal FortnightSalaryInGfSystem { get; set; }
+        public decimal FortnightSalaryInGfSystem2 { get; set; }
 
         public Salary CalculateDiscount()
         {
@@ -51,8 +54,9 @@ namespace SalaryDiscountCalculatorWeb.Models.Salary
 
             if (AnnualSalaryAfterAfpAndSfsDiscount <= firstCategoryUpperLimitQty)
             {
-                IsrCategory = $"1. ​Rentas hasta RD${firstCategoryUpperLimitQty}: " +
-                              "Exento";
+                IsrCategory = $"1. ​Rentas hasta RD${firstCategoryUpperLimitQty:N}: " +
+                    "Exento";
+
                 IsrAnnualDiscount = 0;
 
                 return;
@@ -73,6 +77,7 @@ namespace SalaryDiscountCalculatorWeb.Models.Salary
 
                 IsrAnnualDiscount = CalculateIsrDiscount(secondCategoryLowerLimitQty, percent);
                 IsrMonthlyDiscount = IsrAnnualDiscount / 12;
+
                 return;
             }
 
@@ -92,6 +97,7 @@ namespace SalaryDiscountCalculatorWeb.Models.Salary
 
                 IsrAnnualDiscount = CalculateIsrDiscount(thirdCategoryLowerLimitQty, percent, additionalAmount);
                 IsrMonthlyDiscount = IsrAnnualDiscount / 12;
+
                 return;
             }
 
@@ -103,7 +109,7 @@ namespace SalaryDiscountCalculatorWeb.Models.Salary
                 percent = 0.25m;
 
                 IsrCategory = $"4. Rentas desde  RD${fourthCategoryLowerLimitQty:N} en adelante: " +
-                              $"RD${additionalAmount:N} más el {percent * 100:N0}% del excedente de RD${fourthCategoryLowerLimitQty:N}";
+                    $"RD${additionalAmount:N} más el {percent * 100:N0}% del excedente de RD${fourthCategoryLowerLimitQty:N}";
 
                 IsrAnnualDiscount = CalculateIsrDiscount(fourthCategoryLowerLimitQty, percent, additionalAmount);
                 IsrMonthlyDiscount = IsrAnnualDiscount / 12;
@@ -121,7 +127,10 @@ namespace SalaryDiscountCalculatorWeb.Models.Salary
             AnnualSalaryAfterTotalDiscount = AnnualSalary - AnnualTotalDiscount;
             MonthlySalaryAfterTotalDiscount = MonthlySalary - MonthlyTotalDiscount;
 
-            var c = MonthlySalaryAfterTotalDiscount * 12;
+            // Reference salary: 93,000
+            FortnightSalaryInGfSystem = MonthlySalaryAfterTotalDiscount * 36759.30m / 77044.84m;
+            FortnightSalaryInGfSystem2 = MonthlySalaryAfterTotalDiscount * 34856.46m / 77044.84m;
+            MonthlySalaryInGfSystem = FortnightSalaryInGfSystem * 2;
         }
 
         private decimal CalculateIsrDiscount(decimal lowerLimit, decimal percent, decimal amount = 0)
