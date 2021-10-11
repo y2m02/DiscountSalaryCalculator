@@ -15,10 +15,7 @@ namespace SalaryDiscountCalculatorApi.Services
         private readonly IIsrCalculator isrCalculator;
         private readonly decimal sfsPercent;
 
-        public DiscountCalculator(
-            IConfiguration configuration,
-            IIsrCalculator isrCalculator
-        )
+        public DiscountCalculator(IConfiguration configuration, IIsrCalculator isrCalculator)
         {
             this.isrCalculator = isrCalculator;
 
