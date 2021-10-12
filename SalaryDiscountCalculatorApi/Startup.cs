@@ -1,3 +1,6 @@
+using System;
+using System.IO;
+using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,7 +26,14 @@ namespace SalaryDiscountCalculatorApi
             services.AddRouting(option => option.LowercaseUrls = true);
 
             services.AddSwaggerGen(
-                c => c.SwaggerDoc("v1", new() { Title = "Salary Discount Calculator API", Version = "v1" })
+                c =>
+                {
+                    c.SwaggerDoc("v1", new() { Title = "Salary Discount Calculator API", Version = "v1" });
+                    var file = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                    var path = Path.Combine(AppContext.BaseDirectory, file);
+
+                    c.IncludeXmlComments(path);
+                }
             );
 
             services.AddScoped<IDiscountCalculator, DiscountCalculator>();
