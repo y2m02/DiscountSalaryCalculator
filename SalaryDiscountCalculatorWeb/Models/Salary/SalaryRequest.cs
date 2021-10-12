@@ -10,6 +10,8 @@ namespace SalaryDiscountCalculatorWeb.Models.Salary
         [DisplayName("Salario mensual")]
         public decimal? Salary { get; set; }
 
-        public PaymentType PaymentType { get; set; } = PaymentType.Monthly;
+        [Required(ErrorMessage = "Campo requerido")]
+        [DisplayName("Forma de pago")]
+        public PaymentType? PaymentType { get; set; }
     }
 }

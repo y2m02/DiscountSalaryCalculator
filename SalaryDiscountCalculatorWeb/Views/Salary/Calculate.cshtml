@@ -1,19 +1,30 @@
-﻿@model SalaryDiscountCalculatorWeb.Models.Salary.SalaryRequest
+﻿@using SalaryDiscountCalculatorWeb.Models.Salary
+@using HelpersLibrary.Extensions
+@model SalaryDiscountCalculatorWeb.Models.Salary.SalaryRequest
 
 @{
-    ViewData["Title"] = "Calculadorar";
+    ViewData["Title"] = "Calculadora";
+
+    var types = Enum.GetValues(typeof(PaymentType))
+        .Cast<PaymentType>()
+        .Select(item => new SelectListItem(item.GetDescription(), item.EnumToString()));
 }
 
 <h4>Calculadora de descuentos</h4>
-<hr/>
+<hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Calculate">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Salary" class="control-label" style="font-weight: bold"></label>
-                <input asp-for="Salary" class="form-control .numericField" type="number"/>
+                <input asp-for="Salary" class="form-control .numericField" type="number" />
                 <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentType" class="control-label" style="font-weight: bold"></label>
+                @Html.DropDownListFor(x => x.PaymentType, types, "Elija una opción", new { @class = "form-control" })
+                <span asp-validation-for="PaymentType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Calcular" class="btn btn-primary" />
@@ -47,7 +58,7 @@
                 event.keyCode == 37 ||
                 event.keyCode == 39 ||
                 event.keyCode == 46 ||
-                event.keyCode == 110||
+                event.keyCode == 110 ||
                 event.keyCode == 190)) {
 
                 event.preventDefault();
