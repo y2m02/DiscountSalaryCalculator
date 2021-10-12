@@ -9,5 +9,7 @@ namespace SalaryDiscountCalculatorWeb.Models.Salary
         [Range(10000, double.MaxValue, ErrorMessage = "El salario mínimo aceptado es RD${1:N}")]
         [DisplayName("Salario mensual")]
         public decimal? Salary { get; set; }
+
+        public PaymentType PaymentType { get; set; } = PaymentType.Monthly;
     }
 }
