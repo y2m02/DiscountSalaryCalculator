@@ -23,7 +23,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="PaymentType" class="control-label" style="font-weight: bold"></label>
-                @Html.DropDownListFor(x => x.PaymentType, types, "Elija una opción", new { @class = "form-control" })
+                @Html.DropDownListFor(x => x.PaymentType, types, new { @class = "form-control" })
                 <span asp-validation-for="PaymentType" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -7,7 +7,7 @@ namespace SalaryDiscountCalculatorWeb.Models.Salary
     {
         [Required(ErrorMessage = "Campo requerido")]
         [Range(10000, double.MaxValue, ErrorMessage = "El salario mínimo aceptado es RD${1:N}")]
-        [DisplayName("Salario mensual")]
+        [DisplayName("Salario")]
         public decimal? Salary { get; set; }
 
         [Required(ErrorMessage = "Campo requerido")]
